@@ -1,0 +1,55 @@
+{{template "base" .}}
+
+{{define "title"}}Home{{end}}
+<!--define itu berarti kasi value kalau block yang di base maksudnya bagian yang akan di replace dengan yang di define-->
+{{define "main"}}
+<h2>Latest snippets</h2>
+{{if .Snippets}}
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Created</th>
+        <th>ID</th>
+
+    </tr>
+    {{range .Snippets}}
+    <tr>
+        <td><a href='/snippet/{{.ID}}'>{{.Title}}</a></td>
+        <td>{{humanDate .Created}}</td>
+        <td>#{{.ID}}</td>
+
+    </tr>
+    {{end}}
+</table>
+
+{{else}}
+<p>there's nothing to see here yet!</p>
+{{end}}
+
+
+{{end}}
+
+<!--
+<!doctype html>
+<html lang ='en'>
+    <head>
+        <meta charset='utf-8'>
+        <title>Home - Snippet - box</title>
+    </head>
+    <body>
+        <header>
+            <h1>
+                <a href='/'>Snippetbox</a>
+            </h1>
+        </header>
+        <nav>
+            <a href="/"> Home</a>
+        </nav>
+        <main>
+            <h2>Latest snippets</h2>
+            <p>there's nothing to see here yet!</p>
+        </main>
+
+    </body>
+    </html>-->

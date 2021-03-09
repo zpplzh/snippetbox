@@ -1,0 +1,24 @@
+{{template "base" .}} <!--selalu di akhir template ada titip (hal 251) yang block juga harus ada .-->
+
+{{define "title"}}Snippet #{{.Snippet.ID}}{{end}}
+<!--define itu berarti kasi value kalau block yang di base maksudnya bagian yang akan di replace dengan yang di define-->
+{{define "main"}}
+{{with .Snippet}} <!--biar conoth .Title ga usah tambahin .Snippet.title lagi-->
+<div class='snippet'>
+    <div class='metada'>
+        <strong>{{.Title}}</strong>
+        <span>#{{.ID}}</span>
+    </div>
+
+    <pre><code>{{.Content}}</code></pre>
+
+    <div class ='metada'>
+        <time>Created: {{humanDate .Created}}</time>
+        <time>Expires: {{.Expires | humanDate}}</time>
+
+    </div>
+
+
+</div>
+{{end}} <!--end nya with-->
+{{end}}

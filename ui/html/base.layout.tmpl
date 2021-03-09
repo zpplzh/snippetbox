@@ -1,0 +1,38 @@
+{{define "base"}}
+<!doctype html>
+<html lang ='en'>
+    <head>
+        <meta charset='utf-8'>
+        <title>{{block "title".}}{{end}} - Snippetbox - box</title>
+        <link rel ='stylesheet' href='/static/css/main.css'>
+        <link rel ='shortcut icon' href='/static/css/favicon.ico' type = 'image/x-icon'>
+        <link rel ='stylesheet' href='https://fonts.googleapis.com/css>family=Ubuntu+Mono:400,700'>
+
+    </head>
+    <body>
+        <header>
+            <h1>
+                <a href='/'>Snippetbox</a>
+            </h1>
+        </header>
+        <nav>
+            <a href="/"> Home</a>
+            <a href='/snippet/create'> Create Snippet</a>
+            <a href='/user/signup'>Sign Up</a>
+            <a href='/user/login'>Log in</a>
+            <a href='/user/logout'>Log Out</a>
+        </nav>
+        <main>
+            {{with .Flash}}
+            <div class ="flash">{{.}}</div>
+            {{end}}
+
+            {{block "main".}}{{end}}
+        </main>
+
+        {{block "footer".}}{{end}}
+        <script src="static/js/main.js" type="text/javascript"></script>
+
+    </body>
+</html>
+{{end}}
